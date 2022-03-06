@@ -1,3 +1,7 @@
+from login import login
+
+nao_tem_conta = login.nao_tem_conta()
+
 print('=' * 80)
 print('****************************** Caixa eletronico*********************************')
 print('*****************************Roubando seu dinheiro******************************')
@@ -9,22 +13,13 @@ continuar = 'sim'
 while continuar == ('sim'):
     conta = input('Você ja tem conta ? ')
     conta == ('sim')
-    if conta != ('sim'):
-        print('Conta Vamos fazer uma nova conta ? ')
-        numeroContaCadastrada = input('Digite seu novo numero de conta: ')
-        senhaCadastrada = input('Digite sua nova senha: ')
-        print('Conta ', numeroContaCadastrada, ' cadastrada e senha', senhaCadastrada, 'cadastrada')
-        print('Entre com sua conta: ')
-        numeroContaCadastrada = input('Digite o numero da sua conta: ')        
-        senhaCadastrada = input('Digite sua senha: ')        
-        print('Parabens pelo cadastro, voce realizara o processo de login')
-        conta = ('nao')
-    else:
-        print('Entre com sua conta !! ')
-        login = input('Digite o numero da sua conta: ')
+    if conta == ('sim'):
+        login = input('Digite sua conta: ')
         senha = input('Digite sua senha: ')
-        
-    if login == ('0000' or numeroContaCadastrada) and senha == ('admin' or senhaCadastrada):
+    elif conta != ('sim'):
+        print(nao_tem_conta)
+
+    if login == ('0000' or login) and senha == ('admin' or senha):
         operacao = int(input('''Qual operação você deseja realizar: 
         1: Para saque
         2: Para transferencia
